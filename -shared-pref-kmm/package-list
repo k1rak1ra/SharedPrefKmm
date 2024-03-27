@@ -1,0 +1,41 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:net.k1ra.sharedprefkmm.extensions////PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/index.html
+$dokka.location:net.k1ra.sharedprefkmm.extensions//toByteArray/[Error type: Unresolved type for NSData]#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/to-byte-array.html
+$dokka.location:net.k1ra.sharedprefkmm.extensions//toNsData/kotlin.ByteArray#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/to-ns-data.html
+$dokka.location:net.k1ra.sharedprefkmm.util////PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/index.html
+$dokka.location:net.k1ra.sharedprefkmm.util/Constants///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-constants/index.html
+$dokka.location:net.k1ra.sharedprefkmm.util/Constants/AES_256_IV_LENGTH/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-constants/-a-e-s_256_-i-v_-l-e-n-g-t-h.html
+$dokka.location:net.k1ra.sharedprefkmm.util/Constants/AES_256_KEY_LENGTH/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-constants/-a-e-s_256_-k-e-y_-l-e-n-g-t-h.html
+$dokka.location:net.k1ra.sharedprefkmm.util/TestConfig///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-test-config/index.html
+$dokka.location:net.k1ra.sharedprefkmm.util/TestConfig/testMode/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-test-config/test-mode.html
+$dokka.location:net.k1ra.sharedprefkmm////PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/index.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider.Companion///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/-companion/index.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider.Companion/appContext/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/-companion/app-context.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/index.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider/SharedPrefKmmInitContentProvider/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/-shared-pref-kmm-init-content-provider.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider/delete/#android.net.Uri#kotlin.String?#kotlin.Array[kotlin.String]?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/delete.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider/getType/#android.net.Uri/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/get-type.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider/insert/#android.net.Uri#android.content.ContentValues?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/insert.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider/onCreate/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/on-create.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider/query/#android.net.Uri#kotlin.Array[kotlin.String]?#kotlin.String?#kotlin.Array[kotlin.String]?#kotlin.String?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/query.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPrefKmmInitContentProvider/update/#android.net.Uri#android.content.ContentValues?#kotlin.String?#kotlin.Array[kotlin.String]?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-pref-kmm-init-content-provider/update.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/index.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/SharedPreferences/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/-shared-preferences.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/convertRequestBody/#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/convert-request-body.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/convertResponseBody/#kotlin.ByteArray/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/convert-response-body.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/delete/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/delete.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/deleteSynchronously/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/delete-synchronously.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/get/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/get.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/getFromDbAndDecrypt/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/get-from-db-and-decrypt.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/getSynchronously/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/get-synchronously.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/kotlinJson/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/kotlin-json.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/set/#kotlin.String#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/setSynchronously/#kotlin.String#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set-synchronously.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/setToDbAndEncrypt/#kotlin.String#kotlin.ByteArray/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set-to-db-and-encrypt.html
+$dokka.location:net.k1ra.sharedprefkmm/StorageManager///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-storage-manager/index.html
+$dokka.location:net.k1ra.sharedprefkmm/StorageManager/getLocalStorageDir/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-storage-manager/get-local-storage-dir.html
+net.k1ra.sharedprefkmm
+net.k1ra.sharedprefkmm.extensions
+net.k1ra.sharedprefkmm.util
+
