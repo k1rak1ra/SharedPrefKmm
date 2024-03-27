@@ -26,7 +26,7 @@ SharedPrefKmm is a Kotlin multiplatform key-value data storage library with encr
 .. Add the Maven repository to your `settings.gradle`
 ... `maven("https://k1ra.net/nexus/repository/public")`
 .. Add the dependency:
-... `implementation("net.k1ra.shared_pref_kmm:shared_pref_kmm:latest.release")`
+... `implementation("net.k1ra.shared_pref_kmm:SharedPrefKmm:latest.release")`
 .. Add the following linker flag to `Other Linker Flags` in your Xcode project:
 ... `-lsqlite3`
 . Use `SharedPreferences` in your project:
