@@ -1,0 +1,86 @@
+= SharedPrefKmm
+:toc:
+:source-highlighter: highlightjs
+
+== Introduction
+
+SharedPrefKmm is a Kotlin multiplatform key-value data storage library with encryption by default
+
+== Features
+
+* Simple get() set() delete() API
+* Encrypted by default with hardware-backed secure key storage on iOS and Android
+* Support for storing `@Serializable` objects as well as primitives
+
+== Supported Platforms
+
+* Android
+* iOS
+* JVM/desktop
+
+== Usage Guide
+
+=== Getting Started
+
+. Integrate this library as a dependency in your project:
+.. Add the Maven repository to your `settings.gradle`
+... `maven("https://k1ra.net/nexus/repository/public")`
+.. Add the dependency:
+... `implementation("net.k1ra.shared_pref_kmm:shared_pref_kmm:latest.release")`
+.. Add the following linker flag to `Other Linker Flags` in your Xcode project:
+... `-lsqlite3`
+. Use `SharedPreferences` in your project:
+
+[source,kotlin]
+----
+//It is especially important on jvm/desktop for the collection name to be unique to your app
+val pref = SharedPreferences("UniqueCollectionNameHere")
+
+//Make a @Serializable object
+val obj = TestObject("test", 123)
+
+//Set it from a coroutine
+pref.set("obj", obj)
+//Set it synchronously
+pref.setSynchronously("s-obj", obj)
+
+//Get it from a coroutine
+val storedObj = pref.get<TestObject>("obj")
+//Get it synchronously
+val storedObjSynch = pref.getSynchronously<TestObject>("s-obj")
+
+//Delete it from a coroutine
+pref.delete("obj")
+//Delete it synchronously
+pref.deleteSynchronously("s-obj")
+----
+
+== Security
+On iOS and Android, encryption keys are stored securely, backed by the system keystore.
+Unfortunately, because no such APIs exist on the desktop JVM, the encryption key is stored in a file in the application's data directory.
+
+== Usage Examples
+
+There are additional usage examples in the SharedPrefKmmDemo app and SharedPrefTest in this project
+
+== Environment Setup
+
+* Since this is a KMM project, a modern version of Android Studio (2023.1.1 or newer) is required
+* Remember to configure Android Studio to use Java 17
+
+== Dokka
+https://k1rak1ra.github.io/SharedPrefKmm/index.html
+
+== Conduct
+
+This is a professional environment, and you are expected to conduct yourself in a professional and courteous manner.
+If you fail to exhibit appropriate conduct, your contributions and interactions will no longer be welcome here.
+
+== Contributing
+
+* Everyone is welcome and encouraged to contribute.
+If you are looking for a place to start, try working on an unassigned issue with the `good-first-issue` tag.
+* All contributions are expected to conform to standard Kotlin code style and be covered by unit tests.
+* PRs will not be merged if there are failing tests.
+* If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.
+* When submitting code, please follow the existing conventions and style in order to keep the code readable.

@@ -1,0 +1,22 @@
+CREATE TABLE SharedPref (
+    id INTEGER NOT NULL PRIMARY KEY,
+    collection TEXT NOT NULL,
+    key TEXT NOT NULL,
+    value BLOB NOT NULL,
+    iv BLOB NOT NULL
+);
+
+insert:
+INSERT INTO SharedPref(collection, key, value, iv) VALUES (?, ?, ?, ?);
+
+get:
+SELECT * FROM SharedPref WHERE (key = ? AND collection = ?);
+
+getByIv:
+SELECT count(*) FROM SharedPref WHERE (iv = ?);
+
+exists:
+SELECT count(*) FROM SharedPref WHERE (key = ? AND collection = ?);
+
+delete:
+DELETE FROM SharedPref WHERE (key = ? AND collection = ?);

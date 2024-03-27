@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <provider
+            android:name=".SharedPrefKmmInitContentProvider"
+            android:authorities="${applicationId}.SharedPrefKmmInitContentProvider"
+            android:exported="false"/>
+    </application>
+
+</manifest>
