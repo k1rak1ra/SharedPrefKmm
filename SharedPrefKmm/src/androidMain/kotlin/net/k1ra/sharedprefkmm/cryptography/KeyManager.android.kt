@@ -13,7 +13,7 @@ internal actual object KeyManager {
     private const val keyAlias = "SharedPrefDbKey"
     private var key: ByteArray? = null
 
-    actual fun getKey(collection: String) : ByteArray {
+    actual fun getKey(collection: String) : ByteArray? {
         if (key != null)
             return key!!
 

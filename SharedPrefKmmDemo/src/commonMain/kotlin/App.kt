@@ -7,10 +7,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import net.k1ra.sharedprefkmm.SharedPreferences
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -19,8 +23,14 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun App() {
     val keyboardController = LocalSoftwareKeyboardController.current
     val pref = SharedPreferences("SharedPrefDemoApp")
-    val textToStore = remember { mutableStateOf(pref.getSynchronously<String>("demoText") ?: "") }
-    val retrievedText = remember { mutableStateOf(pref.getSynchronously<String>("demoText")) }
+    val textToStore = remember { mutableStateOf("") }
+    val retrievedText = remember { mutableStateOf(null as String?) }
+    val scope = rememberCoroutineScope()
+
+    scope.launch {
+        textToStore.value = pref.get<String>("demoText") ?: ""
+        retrievedText.value = pref.get<String>("demoText")
+    }
 
     MaterialTheme {
         Column(
@@ -31,13 +41,17 @@ fun App() {
             DefaultTextField(textToStore, "Text to store", keyboardController)
 
             Button(onClick = {
-                pref.setSynchronously("demoText", textToStore.value)
+                scope.launch {
+                    pref.set("demoText", textToStore.value)
+                }
             }) {
                 Text("Store")
             }
 
             Button(onClick = {
-                retrievedText.value = pref.getSynchronously<String>("demoText")
+                scope.launch {
+                    retrievedText.value = pref.get<String>("demoText")
+                }
             }) {
                 Text("Get")
             }

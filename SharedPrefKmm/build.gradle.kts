@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
@@ -15,8 +18,10 @@ sqldelight {
     databases {
         create("SharedPrefDatabase") {
             packageName.set("net.k1ra.sharedprefkmm.database")
+            generateAsync.set(true)
         }
     }
+    linkSqlite = true
 }
 
 kotlin {
@@ -29,12 +34,8 @@ kotlin {
         publishLibraryVariants("release", "debug")
     }
 
-    targets.all {
-        compilations.all {
-            compilerOptions.configure {
-                freeCompilerArgs.add("-Xexpect-actual-classes")
-            }
-        }
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
     }
     
     listOf(
@@ -45,6 +46,24 @@ kotlin {
         it.binaries.framework {
             baseName = "SharedPrefKmm"
             isStatic = true
+        }
+    }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        binaries.executable()
+        browser {
+            val rootDirPath = project.rootDir.path
+            val projectDirPath = project.projectDir.path
+            commonWebpackConfig {
+                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                    static = (static ?: mutableListOf()).apply {
+                        // Serve sources to debug inside browser
+                        add(rootDirPath)
+                        add(projectDirPath)
+                    }
+                }
+            }
         }
     }
 
@@ -76,6 +95,14 @@ kotlin {
 
         jvmMain.dependencies {
             implementation(libs.sqldelight.driver.jdbc)
+        }
+
+        wasmJsMain.dependencies {
+            implementation(libs.kotlinx.browser)
+            implementation(libs.sqldelight.driver.web)
+            implementation(npm("@cashapp/sqldelight-sqljs-worker", libs.versions.sqlJsWorker.get()))
+            implementation(npm("sql.js", libs.versions.sqlJs.get()))
+            implementation(devNpm("copy-webpack-plugin", libs.versions.webPackPlugin.get()))
         }
     }
 }

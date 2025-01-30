@@ -84,74 +84,6 @@ class SharedPrefTest {
     }
 
     @Test
-    fun allPrimitivesSynch() {
-        //String
-        val str: String = "test str"
-        pref.setSynchronously("sstr", str)
-        assertEquals(str, pref.getSynchronously<String>("sstr"))
-
-        //Char
-        val char: Char = 'c'
-        pref.setSynchronously("schar", char)
-        assertEquals(char, pref.getSynchronously<Char>("schar"))
-
-        //Bool
-        val bool: Boolean = true
-        pref.setSynchronously("sbool", bool)
-        assertEquals(bool, pref.getSynchronously<Boolean>("sbool"))
-
-        //Byte
-        val byte: Byte = 50
-        pref.setSynchronously("sbyte", byte)
-        assertEquals(byte, pref.getSynchronously<Byte>("sbyte"))
-
-        //Short
-        val short: Short = 4
-        pref.setSynchronously("sshort", short)
-        assertEquals(short, pref.getSynchronously<Short>("sshort"))
-
-        //Int
-        val int: Int = 20
-        pref.setSynchronously("sint", int)
-        assertEquals(int, pref.getSynchronously<Int>("sint"))
-
-        //Long
-        val long: Long = 32432
-        pref.setSynchronously("slong", long)
-        assertEquals(long, pref.getSynchronously<Long>("slong"))
-
-        //UByte
-        val ubyte: UByte = 50u
-        pref.setSynchronously("subyte", ubyte)
-        assertEquals(ubyte, pref.getSynchronously<UByte>("subyte"))
-
-        //UShort
-        val ushort: UShort = 4u
-        pref.setSynchronously("sushort", ushort)
-        assertEquals(ushort, pref.getSynchronously<UShort>("sushort"))
-
-        //UInt
-        val uint: UInt = 20u
-        pref.setSynchronously("suint", uint)
-        assertEquals(uint, pref.getSynchronously<UInt>("suint"))
-
-        //ULong
-        val ulong: ULong = 32432u
-        pref.setSynchronously("sulong", ulong)
-        assertEquals(ulong, pref.getSynchronously<ULong>("sulong"))
-
-        //Unit
-        val unit = Unit
-        pref.setSynchronously("sunit", unit)
-        assertEquals(unit, pref.getSynchronously<Unit>("sunit"))
-
-        //ByteArray
-        val barr = "test".encodeToByteArray()
-        pref.setSynchronously("sbarr", barr)
-        assertEquals(barr.decodeToString(), pref.getSynchronously<ByteArray>("sbarr")!!.decodeToString())
-    }
-
-    @Test
     fun obj() {
         runBlocking {
             val obj = TestObject("test", 123)
@@ -160,10 +92,4 @@ class SharedPrefTest {
         }
     }
 
-    @Test
-    fun objSynch() {
-        val obj = TestObject("test", 123)
-        pref.setSynchronously("sobj", obj)
-        assertEquals(obj, pref.getSynchronously<TestObject>("sobj"))
-    }
 }

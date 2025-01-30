@@ -39,7 +39,7 @@ internal actual object KeyManager {
 
     private var key: ByteArray? = null
 
-    actual fun getKey(collection: String) : ByteArray {
+    actual fun getKey(collection: String) : ByteArray? {
         if (key != null)
             return key!!
 

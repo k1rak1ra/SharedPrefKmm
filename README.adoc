@@ -17,6 +17,7 @@ SharedPrefKmm is a Kotlin multiplatform key-value data storage library with encr
 * Android
 * iOS
 * JVM/desktop
+* wasmJs
 
 == Usage Guide
 
@@ -39,25 +40,20 @@ val pref = SharedPreferences("UniqueCollectionNameHere")
 //Make a @Serializable object
 val obj = TestObject("test", 123)
 
-//Set it from a coroutine
+//Set it
 pref.set("obj", obj)
-//Set it synchronously
-pref.setSynchronously("s-obj", obj)
 
-//Get it from a coroutine
+//Get it
 val storedObj = pref.get<TestObject>("obj")
-//Get it synchronously
-val storedObjSynch = pref.getSynchronously<TestObject>("s-obj")
 
-//Delete it from a coroutine
+//Delete it
 pref.delete("obj")
-//Delete it synchronously
-pref.deleteSynchronously("s-obj")
 ----
 
 == Security
 On iOS and Android, encryption keys are stored securely, backed by the system keystore.
 Unfortunately, because no such APIs exist on the desktop JVM, the encryption key is stored in a file in the application's data directory.
+On wasmJs, temporarily, data is only stored for the life of the session
 
 == Usage Examples
 
