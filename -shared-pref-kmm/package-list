@@ -1,9 +1,10 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:net.k1ra.sharedprefkmm.extensions////PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/index.html
-$dokka.location:net.k1ra.sharedprefkmm.extensions//toByteArray/[Error type: Unresolved type for NSData]#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/to-byte-array.html
+$dokka.location:net.k1ra.sharedprefkmm.extensions//toByteArray/platform.Foundation.NSData#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/to-byte-array.html
 $dokka.location:net.k1ra.sharedprefkmm.extensions//toNsData/kotlin.ByteArray#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/to-ns-data.html
 $dokka.location:net.k1ra.sharedprefkmm.util////PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/index.html
+$dokka.location:net.k1ra.sharedprefkmm.util//IODispatcher/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-i-o-dispatcher.html
 $dokka.location:net.k1ra.sharedprefkmm.util/Constants///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-constants/index.html
 $dokka.location:net.k1ra.sharedprefkmm.util/Constants/AES_256_IV_LENGTH/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-constants/-a-e-s_256_-i-v_-l-e-n-g-t-h.html
 $dokka.location:net.k1ra.sharedprefkmm.util/Constants/AES_256_KEY_LENGTH/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.util/-constants/-a-e-s_256_-k-e-y_-l-e-n-g-t-h.html
@@ -25,17 +26,13 @@ $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/SharedPreferences/#kotl
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/convertRequestBody/#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/convert-request-body.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/convertResponseBody/#kotlin.ByteArray/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/convert-response-body.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/delete/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/delete.html
-$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/deleteSynchronously/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/delete-synchronously.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/get/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/get.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/getFromDbAndDecrypt/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/get-from-db-and-decrypt.html
-$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/getSynchronously/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/get-synchronously.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/kotlinJson/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/kotlin-json.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/set/#kotlin.String#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set.html
-$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/setSynchronously/#kotlin.String#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set-synchronously.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/setToDbAndEncrypt/#kotlin.String#kotlin.ByteArray/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set-to-db-and-encrypt.html
 $dokka.location:net.k1ra.sharedprefkmm/StorageManager///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-storage-manager/index.html
 $dokka.location:net.k1ra.sharedprefkmm/StorageManager/getLocalStorageDir/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-storage-manager/get-local-storage-dir.html
 net.k1ra.sharedprefkmm
 net.k1ra.sharedprefkmm.extensions
 net.k1ra.sharedprefkmm.util
-
