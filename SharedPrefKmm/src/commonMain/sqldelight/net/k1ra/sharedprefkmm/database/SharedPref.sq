@@ -20,3 +20,6 @@ SELECT count(*) FROM SharedPref WHERE (key = ? AND collection = ?);
 
 delete:
 DELETE FROM SharedPref WHERE (key = ? AND collection = ?);
+
+update:
+UPDATE SharedPref SET value = ?, iv = ? WHERE key = ?;

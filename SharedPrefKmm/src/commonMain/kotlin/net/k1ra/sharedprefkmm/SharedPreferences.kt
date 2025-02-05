@@ -37,7 +37,6 @@ class SharedPreferences(private val collection: String) {
 
     suspend inline fun <reified B> set(key: String, value: B?) : Unit = suspendCancellableCoroutine { continuation ->
         CoroutineScope(IODispatcher).launch {
-            delete(key)
             setToDbAndEncrypt(key, convertRequestBody(value))
             continuation.resume(Unit)
         }
@@ -76,6 +75,10 @@ class SharedPreferences(private val collection: String) {
             iv = crypto.generateIv()
 
         val encryptedData = crypto.runAes(data, iv, CipherMode.ENCRYPT)
-        getDb().insert(collection, key, encryptedData, iv)
+
+        if (getDb().get(key, collection).awaitAsOneOrNull() != null)
+            getDb().update(encryptedData, iv, key)
+        else
+            getDb().insert(collection, key, encryptedData, iv)
     }
 }
