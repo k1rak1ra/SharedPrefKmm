@@ -2,20 +2,21 @@ package net.k1ra.sharedprefkmm
 
 import app.cash.sqldelight.async.coroutines.awaitAsOne
 import app.cash.sqldelight.async.coroutines.awaitAsOneOrNull
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import net.k1ra.sharedprefkmm.cryptography.CipherMode
 import net.k1ra.sharedprefkmm.cryptography.Cryptography
 import net.k1ra.sharedprefkmm.database.DatabaseFactory
 import net.k1ra.sharedprefkmm.database.SharedPrefQueries
 import net.k1ra.sharedprefkmm.util.IODispatcher
-import kotlin.coroutines.resume
 import kotlin.reflect.typeOf
 
 class SharedPreferences(private val collection: String) {
     private var db: SharedPrefQueries? = null
+    private val dbMutex = Mutex()
+    val writeMutex = Mutex()
     private val crypto = Cryptography(collection)
     var kotlinJson = Json { ignoreUnknownKeys = true }
 
@@ -26,19 +27,23 @@ class SharedPreferences(private val collection: String) {
     }
 
     private suspend fun getDb() : SharedPrefQueries {
-        if (db == null)
-            db = DatabaseFactory.provideDatabase(collection)
-        return db as SharedPrefQueries
+        db?.let { return it }
+        return dbMutex.withLock {
+            db ?: DatabaseFactory.provideDatabase(collection).also { db = it }
+        }
     }
 
     suspend fun delete(key: String) {
-        getDb().delete(key, collection)
+        writeMutex.withLock {
+            getDb().delete(key, collection)
+        }
     }
 
-    suspend inline fun <reified B> set(key: String, value: B?) : Unit = suspendCancellableCoroutine { continuation ->
-        CoroutineScope(IODispatcher).launch {
-            setToDbAndEncrypt(key, convertRequestBody(value))
-            continuation.resume(Unit)
+    suspend inline fun <reified B> set(key: String, value: B?) {
+        withContext(IODispatcher) {
+            writeMutex.withLock {
+                setToDbAndEncrypt(key, convertRequestBody(value))
+            }
         }
     }
 
@@ -71,8 +76,9 @@ class SharedPreferences(private val collection: String) {
     suspend fun setToDbAndEncrypt(key: String, data: ByteArray) {
         var iv = crypto.generateIv()
 
-        while(getDb().getByIv(iv).awaitAsOne() > 0)
+        while (getDb().getByIv(iv).awaitAsOne() > 0) {
             iv = crypto.generateIv()
+        }
 
         val encryptedData = crypto.runAes(data, iv, CipherMode.ENCRYPT)
 
