@@ -30,5 +30,6 @@ dependencyResolutionManagement {
     }
 }
 
+include(":SharedPrefKmmDemoAndroid")
 include(":SharedPrefKmmDemo")
 include(":SharedPrefKmm")

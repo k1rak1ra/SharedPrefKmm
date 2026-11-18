@@ -28,9 +28,6 @@ SharedPrefKmm is a Kotlin multiplatform key-value data storage library with encr
 ... `maven("https://k1ra.net/nexus/repository/public")`
 .. Add the dependency:
 ... `implementation("net.k1ra.shared_pref_kmm:SharedPrefKmm:latest.release")`
-.. Add the following linker flag to `Other Linker Flags` in your Xcode project:
-... `-lsqlite3`
-. Use `SharedPreferences` in your project:
 
 [source,kotlin]
 ----
@@ -52,17 +49,12 @@ pref.delete("obj")
 
 == Security
 On iOS and Android, encryption keys are stored securely, backed by the system keystore.
-Unfortunately, because no such APIs exist on the desktop JVM, the encryption key is stored in a file in the application's data directory.
-On wasmJs, temporarily, data is only stored for the life of the session
+On web and desktop, data is unencrypted at the moment.
 
 == Usage Examples
 
 There are additional usage examples in the SharedPrefKmmDemo app and SharedPrefTest in this project
 
-== Environment Setup
-
-* Since this is a KMM project, a modern version of Android Studio (2023.1.1 or newer) is required
-* Remember to configure Android Studio to use Java 17
 
 == Dokka
 https://k1rak1ra.github.io/SharedPrefKmm/index.html

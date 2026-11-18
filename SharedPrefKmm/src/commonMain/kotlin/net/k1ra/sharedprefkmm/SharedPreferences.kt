@@ -1,20 +1,19 @@
 package net.k1ra.sharedprefkmm
 
-import app.cash.sqldelight.async.coroutines.awaitAsOne
-import app.cash.sqldelight.async.coroutines.awaitAsOneOrNull
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import net.k1ra.sharedprefkmm.cryptography.CipherMode
 import net.k1ra.sharedprefkmm.cryptography.Cryptography
-import net.k1ra.sharedprefkmm.database.DatabaseFactory
-import net.k1ra.sharedprefkmm.database.SharedPrefQueries
+import net.k1ra.sharedprefkmm.database.PreferenceDao
+import net.k1ra.sharedprefkmm.database.buildPreferenceDatabase
+import net.k1ra.sharedprefkmm.database.PreferenceEntity
 import net.k1ra.sharedprefkmm.util.IODispatcher
 import kotlin.reflect.typeOf
 
 class SharedPreferences(private val collection: String) {
-    private var db: SharedPrefQueries? = null
+    private var db: PreferenceDao? = null
     private val dbMutex = Mutex()
     val writeMutex = Mutex()
     private val crypto = Cryptography(collection)
@@ -26,16 +25,16 @@ class SharedPreferences(private val collection: String) {
         return convertResponseBody<T>(data)
     }
 
-    private suspend fun getDb() : SharedPrefQueries {
+    private suspend fun getDb() : PreferenceDao {
         db?.let { return it }
         return dbMutex.withLock {
-            db ?: DatabaseFactory.provideDatabase(collection).also { db = it }
+            db ?: buildPreferenceDatabase(collection).getDao().also { db = it }
         }
     }
 
     suspend fun delete(key: String) {
         writeMutex.withLock {
-            getDb().delete(key, collection)
+            getDb().delete(key)
         }
     }
 
@@ -67,24 +66,24 @@ class SharedPreferences(private val collection: String) {
     }
 
     suspend fun getFromDbAndDecrypt(key: String) : ByteArray? {
-        val data = getDb().get(key, collection).awaitAsOneOrNull()
+        val data = getDb().get(key)
         data ?: return null
 
-        return crypto.runAes(data.value_, data.iv, CipherMode.DECRYPT)
+        return crypto.runAes(data.data, data.iv, CipherMode.DECRYPT)
     }
 
     suspend fun setToDbAndEncrypt(key: String, data: ByteArray) {
         var iv = crypto.generateIv()
 
-        while (getDb().getByIv(iv).awaitAsOne() > 0) {
+        while (getDb().getByIv(iv) > 0) {
             iv = crypto.generateIv()
         }
 
         val encryptedData = crypto.runAes(data, iv, CipherMode.ENCRYPT)
 
-        if (getDb().get(key, collection).awaitAsOneOrNull() != null)
+        if (getDb().get(key) != null)
             getDb().update(encryptedData, iv, key)
         else
-            getDb().insert(collection, key, encryptedData, iv)
+            getDb().insert(PreferenceEntity(key = key, data = encryptedData, iv = iv))
     }
 }
