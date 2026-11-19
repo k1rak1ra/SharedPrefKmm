@@ -1,5 +1,23 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:net.k1ra.sharedprefkmm.database////PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/index.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDao///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-dao/index.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDao/delete/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-dao/delete.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDao/get/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-dao/get.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDao/getByIv/#kotlin.ByteArray/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-dao/get-by-iv.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDao/insert/#net.k1ra.sharedprefkmm.database.PreferenceEntity/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-dao/insert.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDao/update/#kotlin.ByteArray#kotlin.ByteArray#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-dao/update.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDatabase///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-database/index.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDatabase/PreferenceDatabase/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-database/-preference-database.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDatabase/getDao/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-database/get-dao.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDatabaseConstructor///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-database-constructor/index.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceDatabaseConstructor/initialize/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-database-constructor/initialize.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceEntity///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-entity/index.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceEntity/PreferenceEntity/#kotlin.Long#kotlin.String#kotlin.ByteArray#kotlin.ByteArray/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-entity/-preference-entity.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceEntity/data/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-entity/data.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceEntity/id/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-entity/id.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceEntity/iv/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-entity/iv.html
+$dokka.location:net.k1ra.sharedprefkmm.database/PreferenceEntity/key/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.database/-preference-entity/key.html
 $dokka.location:net.k1ra.sharedprefkmm.extensions////PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/index.html
 $dokka.location:net.k1ra.sharedprefkmm.extensions//toByteArray/platform.Foundation.NSData#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/to-byte-array.html
 $dokka.location:net.k1ra.sharedprefkmm.extensions//toNsData/kotlin.ByteArray#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/to-ns-data.html
@@ -31,8 +49,10 @@ $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/getFromDbAndDecrypt/#ko
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/kotlinJson/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/kotlin-json.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/set/#kotlin.String#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set.html
 $dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/setToDbAndEncrypt/#kotlin.String#kotlin.ByteArray/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/set-to-db-and-encrypt.html
+$dokka.location:net.k1ra.sharedprefkmm/SharedPreferences/writeMutex/#/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-shared-preferences/write-mutex.html
 $dokka.location:net.k1ra.sharedprefkmm/StorageManager///PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-storage-manager/index.html
 $dokka.location:net.k1ra.sharedprefkmm/StorageManager/getLocalStorageDir/#kotlin.String/PointingToDeclaration/-shared-pref-kmm/net.k1ra.sharedprefkmm/-storage-manager/get-local-storage-dir.html
 net.k1ra.sharedprefkmm
+net.k1ra.sharedprefkmm.database
 net.k1ra.sharedprefkmm.extensions
 net.k1ra.sharedprefkmm.util

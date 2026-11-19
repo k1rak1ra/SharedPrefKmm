@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>SharedPrefKmm</title>
     <link href="images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
-<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="scripts/sourceset_dependencies.js" async="async"></script>
 <link href="styles/style.css" rel="Stylesheet">
 <link href="styles/main.css" rel="Stylesheet">
 <link href="styles/prism.css" rel="Stylesheet">
 <link href="styles/logo-styles.css" rel="Stylesheet">
-<link href="styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="index.html" tabindex="1">
                     SharedPrefKmm
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -46,19 +43,19 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-1.1.1        </div>
+2.0.3        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector jvm-like" data-active=""
-                        data-filter=":SharedPrefKmm:dokkaHtml/androidMain">android</button>
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":SharedPrefKmm:dokkaHtml/commonMain">common</button>
-                <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":SharedPrefKmm:dokkaHtml/iosMain">ios</button>
-                <button class="platform-tag platform-selector jvm-like" data-active=""
-                        data-filter=":SharedPrefKmm:dokkaHtml/jvmMain">jvm</button>
-                <button class="platform-tag platform-selector wasm-like" data-active=""
-                        data-filter=":SharedPrefKmm:dokkaHtml/wasmJsMain">wasmJs</button>
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":SharedPrefKmm/androidMain">android</button>
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true"
+                        data-filter=":SharedPrefKmm/commonMain">common</button>
+                <button class="platform-tag platform-selector native-like" data-active="" aria-pressed="true"
+                        data-filter=":SharedPrefKmm/iosMain">ios</button>
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":SharedPrefKmm/jvmMain">jvm</button>
+                <button class="platform-tag platform-selector wasm-like" data-active="" aria-pressed="true"
+                        data-filter=":SharedPrefKmm/wasmJsMain">wasmJs</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
                         data-role="dropdown-toggle"
@@ -67,48 +64,48 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm:dokkaHtml/androidMain"
-                                       data-filter=":SharedPrefKmm:dokkaHtml/androidMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm/androidMain"
+                                       data-filter=":SharedPrefKmm/androidMain"/>
                                 <span class="checkbox--icon"></span>
                                 android
                             </label>
                         </li>
                         <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm:dokkaHtml/commonMain"
-                                       data-filter=":SharedPrefKmm:dokkaHtml/commonMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm/commonMain"
+                                       data-filter=":SharedPrefKmm/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
                         </li>
-                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                        <li role="option" class="dropdown--option platform-selector-option native-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm:dokkaHtml/iosMain"
-                                       data-filter=":SharedPrefKmm:dokkaHtml/iosMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm/iosMain"
+                                       data-filter=":SharedPrefKmm/iosMain"/>
                                 <span class="checkbox--icon"></span>
                                 ios
                             </label>
                         </li>
                         <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm:dokkaHtml/jvmMain"
-                                       data-filter=":SharedPrefKmm:dokkaHtml/jvmMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm/jvmMain"
+                                       data-filter=":SharedPrefKmm/jvmMain"/>
                                 <span class="checkbox--icon"></span>
                                 jvm
                             </label>
                         </li>
                         <li role="option" class="dropdown--option platform-selector-option wasm-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm:dokkaHtml/wasmJsMain"
-                                       data-filter=":SharedPrefKmm:dokkaHtml/wasmJsMain"/>
+                                <input type="checkbox" class="checkbox--input" id=":SharedPrefKmm/wasmJsMain"
+                                       data-filter=":SharedPrefKmm/wasmJsMain"/>
                                 <span class="checkbox--icon"></span>
                                 wasmJs
                             </label>
@@ -116,7 +113,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -124,42 +121,44 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     SharedPrefKmm
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" id="content" pageIds="SharedPrefKmm::////PointingToDeclaration//-72616464">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" id="content" pageIds="SharedPrefKmm::////PointingToDeclaration//539759934">
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span>Shared</span><wbr></wbr><span>Pref</span><wbr></wbr><span><span>Kmm</span></span></h1>
   </div>
   <h2 class="">Packages</h2>
-  <div class="table"><a data-name="212854525%2FPackages%2F1227114175" anchor-label="net.k1ra.sharedprefkmm" id="212854525%2FPackages%2F1227114175" data-filterable-set=":SharedPrefKmm:dokkaHtml/androidMain,:SharedPrefKmm:dokkaHtml/commonMain,:SharedPrefKmm:dokkaHtml/jvmMain"></a>
-    <div class="table-row" data-filterable-current=":SharedPrefKmm:dokkaHtml/androidMain,:SharedPrefKmm:dokkaHtml/commonMain,:SharedPrefKmm:dokkaHtml/jvmMain" data-filterable-set=":SharedPrefKmm:dokkaHtml/androidMain,:SharedPrefKmm:dokkaHtml/commonMain,:SharedPrefKmm:dokkaHtml/jvmMain">
+  <div class="table"><a data-name="212854525%2FPackages%2F-1379561608" anchor-label="net.k1ra.sharedprefkmm" id="212854525%2FPackages%2F-1379561608" data-filterable-set=":SharedPrefKmm/androidMain,:SharedPrefKmm/commonMain,:SharedPrefKmm/jvmMain"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":SharedPrefKmm/androidMain,:SharedPrefKmm/commonMain,:SharedPrefKmm/jvmMain" data-filterable-set=":SharedPrefKmm/androidMain,:SharedPrefKmm/commonMain,:SharedPrefKmm/jvmMain">
       <div>
         <div class="main-subrow ">
           <div class=""><span class="inline-flex">
               <div><a href="-shared-pref-kmm/net.k1ra.sharedprefkmm/index.html">net.k1ra.sharedprefkmm</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="212854525%2FPackages%2F1227114175"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="212854525%2FPackages%2F-1379561608"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
-          <div class="pull-right">
+          <div class="pull-right platform-tags--wrapper">
             <div class="platform-tags no-gutters">
               <div class="platform-tag jvm-like">android</div>
               <div class="platform-tag common-like">common</div>
@@ -170,38 +169,56 @@
         <div></div>
       </div>
     </div>
-<a data-name="1776662569%2FPackages%2F-807561173" anchor-label="net.k1ra.sharedprefkmm.extensions" id="1776662569%2FPackages%2F-807561173" data-filterable-set=":SharedPrefKmm:dokkaHtml/iosMain"></a>
-    <div class="table-row" data-filterable-current=":SharedPrefKmm:dokkaHtml/iosMain" data-filterable-set=":SharedPrefKmm:dokkaHtml/iosMain">
+<a data-name="1953713040%2FPackages%2F-1189842404" anchor-label="net.k1ra.sharedprefkmm.database" id="1953713040%2FPackages%2F-1189842404" data-filterable-set=":SharedPrefKmm/commonMain"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":SharedPrefKmm/commonMain" data-filterable-set=":SharedPrefKmm/commonMain">
       <div>
         <div class="main-subrow ">
           <div class=""><span class="inline-flex">
-              <div><a href="-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/index.html">net.k1ra.sharedprefkmm.extensions</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1776662569%2FPackages%2F-807561173"></span>
+              <div><a href="-shared-pref-kmm/net.k1ra.sharedprefkmm.database/index.html">net.k1ra.sharedprefkmm.database</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1953713040%2FPackages%2F-1189842404"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
-          <div class="pull-right">
+          <div class="pull-right platform-tags--wrapper">
             <div class="platform-tags no-gutters">
-              <div class="platform-tag common-like">ios</div>
+              <div class="platform-tag common-like">common</div>
             </div>
           </div>
         </div>
         <div></div>
       </div>
     </div>
-<a data-name="-1656360745%2FPackages%2F-72616464" anchor-label="net.k1ra.sharedprefkmm.util" id="-1656360745%2FPackages%2F-72616464" data-filterable-set=":SharedPrefKmm:dokkaHtml/androidMain,:SharedPrefKmm:dokkaHtml/commonMain,:SharedPrefKmm:dokkaHtml/iosMain,:SharedPrefKmm:dokkaHtml/jvmMain,:SharedPrefKmm:dokkaHtml/wasmJsMain"></a>
-    <div class="table-row" data-filterable-current=":SharedPrefKmm:dokkaHtml/androidMain,:SharedPrefKmm:dokkaHtml/commonMain,:SharedPrefKmm:dokkaHtml/iosMain,:SharedPrefKmm:dokkaHtml/jvmMain,:SharedPrefKmm:dokkaHtml/wasmJsMain" data-filterable-set=":SharedPrefKmm:dokkaHtml/androidMain,:SharedPrefKmm:dokkaHtml/commonMain,:SharedPrefKmm:dokkaHtml/iosMain,:SharedPrefKmm:dokkaHtml/jvmMain,:SharedPrefKmm:dokkaHtml/wasmJsMain">
+<a data-name="1776662569%2FPackages%2F-244861736" anchor-label="net.k1ra.sharedprefkmm.extensions" id="1776662569%2FPackages%2F-244861736" data-filterable-set=":SharedPrefKmm/iosMain"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":SharedPrefKmm/iosMain" data-filterable-set=":SharedPrefKmm/iosMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="-shared-pref-kmm/net.k1ra.sharedprefkmm.extensions/index.html">net.k1ra.sharedprefkmm.extensions</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1776662569%2FPackages%2F-244861736"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right platform-tags--wrapper">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag native-like">ios</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1656360745%2FPackages%2F539759934" anchor-label="net.k1ra.sharedprefkmm.util" id="-1656360745%2FPackages%2F539759934" data-filterable-set=":SharedPrefKmm/commonMain,:SharedPrefKmm/androidMain,:SharedPrefKmm/iosMain,:SharedPrefKmm/jvmMain,:SharedPrefKmm/wasmJsMain"></a>
+    <div class="table-row table-row_platform-tagged" data-filterable-current=":SharedPrefKmm/commonMain,:SharedPrefKmm/androidMain,:SharedPrefKmm/iosMain,:SharedPrefKmm/jvmMain,:SharedPrefKmm/wasmJsMain" data-filterable-set=":SharedPrefKmm/commonMain,:SharedPrefKmm/androidMain,:SharedPrefKmm/iosMain,:SharedPrefKmm/jvmMain,:SharedPrefKmm/wasmJsMain">
       <div>
         <div class="main-subrow ">
           <div class=""><span class="inline-flex">
               <div><a href="-shared-pref-kmm/net.k1ra.sharedprefkmm.util/index.html">net.k1ra.sharedprefkmm.util</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1656360745%2FPackages%2F-72616464"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1656360745%2FPackages%2F539759934"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
-          <div class="pull-right">
+          <div class="pull-right platform-tags--wrapper">
             <div class="platform-tags no-gutters">
               <div class="platform-tag jvm-like">android</div>
               <div class="platform-tag common-like">common</div>
-              <div class="platform-tag common-like">ios</div>
+              <div class="platform-tag native-like">ios</div>
               <div class="platform-tag jvm-like">jvm</div>
               <div class="platform-tag wasm-like">wasmJs</div>
             </div>
@@ -213,17 +230,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
