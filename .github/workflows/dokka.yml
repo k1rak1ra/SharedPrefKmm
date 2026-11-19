@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v6
         with:
           java-version: 21
+          distribution: temurin
 
       - name: Build documentation
         run: ./gradlew SharedPrefKmm:dokkaGeneratePublicationHtml
