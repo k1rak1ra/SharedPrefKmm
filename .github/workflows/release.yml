@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-java@v6
         with:
           java-version: 21
-          distribution: 'adopt'
 
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1.6.0
